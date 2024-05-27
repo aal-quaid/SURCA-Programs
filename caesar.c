@@ -13,14 +13,14 @@ int main(){
 
     printf("Enter 0 to encrypt and 1 to decrypt:\n");
     scanf("%d", &choice);
-    getchar();
+    getchar();              // Gets one input at a time
 
     if(choice == 0){
         printf("Enter plain text:\n");
         fgets(plainText, sizeof(plainText), stdin);
 
-        plainText[strcspn(plainText, "\n")] = 0;
-
+        plainText[strcspn(plainText, "\n")] = 0;        // fgets will take the entire string plus '\n'
+                                                        // removes '\n' from the plainText
         encryption(plainText);
     }
 
@@ -75,7 +75,7 @@ void decryption(char cipherText[]){
             strncat(plainText, &C, 1);
         }
         else{
-            P = ((C - 97) - 3) % 26;
+            P = ((C - 97) - 3);
 
             if(P < 0){
                 P += 26;
