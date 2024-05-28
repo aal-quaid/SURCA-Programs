@@ -7,8 +7,13 @@ def encrypt(letter_list,shift):
                 encrypted+=letter_list[(i+shift)%26]
                 break #break statements terminate the loop after the correct letter has been found and added
             elif letter.islower() and letter==letter_list[i].lower():
-                encrypted+=letter_list[(i+shift)%26].lower() 
+                encrypted+=letter_list[(i+shift)%26].lower()
+                break 
+            elif letter==" ":
+                encrypted+=" "
+                break
     return encrypted
+
 def decrypt(letter_list,shift):
     string = input("Enter message to decrypt: ")
     decrypted = ""
@@ -19,7 +24,12 @@ def decrypt(letter_list,shift):
                 break
             elif letter.islower() and letter==letter_list[i].lower():
                 decrypted+=letter_list[(i-shift)%26].lower()
+                break
+            elif letter==" ":
+                decrypted+=" "
+                break
     return decrypted
+
 def main():
     #letter_list sets letters equal to their place in the alphabet minus 1. E.g. A=0, Z=25
     letter_list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
