@@ -1,51 +1,40 @@
-def encrypt(letter_list,shift):
+def encrypt(shift):
     string = input("Enter message to encrypt: ")
     encrypted = ""
     for letter in string:
-        for i in range(len(letter_list)):
-            if letter.isupper() and letter==letter_list[i]:
-                encrypted+=letter_list[(i+shift)%26]
-                break #break statements terminate the loop after the correct letter has been found and added
-            elif letter.islower() and letter==letter_list[i].lower():
-                encrypted+=letter_list[(i+shift)%26].lower()
-                break 
-            elif letter==" ":
-                encrypted+=" "
-                break
+        num = (ord)(letter)-(ord)('a')
+        new_num = (num+shift)%26
+        encrypted+=chr((ord)('A')+new_num)
     return encrypted
 
-def decrypt(letter_list,shift):
+def decrypt(shift):
     string = input("Enter message to decrypt: ")
     decrypted = ""
     for letter in string:
-        for i in range(len(letter_list)):
-            if letter.isupper() and letter==letter_list[i]:
-                decrypted+=letter_list[(i-shift)%26]
-                break
-            elif letter.islower() and letter==letter_list[i].lower():
-                decrypted+=letter_list[(i-shift)%26].lower()
-                break
-            elif letter==" ":
-                decrypted+=" "
-                break
+        num = (ord)(letter)-(ord)('a')
+        new_num = (num-shift)%26
+        decrypted+=chr((ord)('A')+new_num) 
     return decrypted
 
 def main():
-    #letter_list sets letters equal to their place in the alphabet minus 1. E.g. A=0, Z=25
-    letter_list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    print("Ceasar Cipher Program")
-    print("Enter 1 to encrpyt a message\nEnter 2 to decrpyt a message")
-    choice = int(input(""))
+    print("Shift Cipher Program")
+    full_message = ""
+    choice = int(input("Enter 1 to continue: "))
     shift = int(input("Enter shift: "))
-    if shift<=0 or shift>25:
-        print("Invald Input")#validates input for the shift 
-    else:    
-        if choice==1:
-            string = encrypt(letter_list,shift)
-            print("Encrypted message:",string)
-        elif choice==2:
-            string = decrypt(letter_list,shift)
-            print("Decrypted message:",string)
+    while(choice==1):
+        print("Enter 1 to encrpyt a message\nEnter 2 to decrpyt a message")
+        x = int(input(""))   
+        if x==1:
+            string = encrypt(shift)
+            # print("Encrypted message:",string)
+            full_message+=string
+        elif x==2:
+            string = decrypt(shift)
+            # print("Decrypted message:",string)
+            full_message+=string
         else:
             print("Invalid input")#Validates input for the choice
+        choice = int(input("Enter 1 to continue, enter 2 to quit: "))
+        full_message+=" "
+    print("Full message:",full_message)
 main()
