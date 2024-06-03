@@ -26,11 +26,9 @@ def main():
         x = int(input(""))   
         if x==1:
             string = encrypt(shift)
-            # print("Encrypted message:",string)
             full_message+=string
         elif x==2:
             string = decrypt(shift)
-            # print("Decrypted message:",string)
             full_message+=string
         else:
             print("Invalid input")#Validates input for the choice
