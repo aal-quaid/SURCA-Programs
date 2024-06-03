@@ -33,7 +33,7 @@ void encrypt(){
     printf("Encrypted Message: %s", encrypted);
 }
 
-void decrypt(char alphabet_string[25]){
+void decrypt(){
     char string[SIZE],decrypted[SIZE];
     int i,num,new_num;
     printf("Enter message to decrypt\n");
