@@ -52,9 +52,9 @@ int main(){
 void encryption(char plainText[], int shift){
     char cipherText[SIZE];
     char P, C;
-    int i, length = strlen(plainText);
+    int i;
 
-    for(i=0; i < length; i++){
+    for(i=0; i < strlen(plainText); i++){
         P = plainText[i];
         if(P == ' '){
             cipherText[i] = ' ';
@@ -73,9 +73,9 @@ void encryption(char plainText[], int shift){
 void decryption(char cipherText[], int shift){
     char plainText[SIZE];
     char C, P;
-    int i, length = strlen(cipherText);
+    int i;
 
-    for(i=0; i < length; i++){
+    for(i=0; i < strlen(cipherText); i++){
         C = cipherText[i];
 
         if(C == ' '){
