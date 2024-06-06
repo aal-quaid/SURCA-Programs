@@ -4,7 +4,7 @@ plaintext - lowercase letters only
 ciphertext - UPPER CASE LETTERS ONLY
 """
 def encryption(shift):
-    string = input("Enter text to encrypt: ")
+    string = input("Enter message to encrypt: ")
     cipherText = ""
 
     for letter in string:
@@ -18,7 +18,7 @@ def encryption(shift):
     return cipherText
 
 def decryption(shift):
-    string = input("Enter text to decrypt: ")
+    string = input("Enter message to decrypt: ")
     plainText = ""
 
     for letter in string:
