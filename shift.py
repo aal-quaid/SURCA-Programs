@@ -1,28 +1,31 @@
-def encryption(plainText, key):
+#Assumption: 
+#plaintext - lowercase letters only
+#ciphertext - UPPER CASE LETTERS ONLY
+def encryption(shift):
     cipherText = ""
 
-    plainText = plainText.upper()       # makes string upper
+    plainText = input("Enter text to encrypt: ")
 
     for letter in plainText:
         if letter == " ":
             cipherText += " "
         else:
-            C = ((ord(letter) - (ord)('A')) + key) % 26         # C = CipherText
+            C = ((ord(letter) - (ord)('a')) + shift) % 26         # C = CipherText
             value = C + (ord)('A')
             cipherText += chr(value)        # converts ascii value to a char
     
     return cipherText
 
-def decryption(cipherText, key):
+def decryption(shift):
     plainText = ""
 
-    cipherText = cipherText.lower()
+    cipherText = input("Enter text to decrypt: ")
 
     for letter in cipherText:
         if letter == " ":
             plainText += " "
         else:
-            C = ((ord)(letter) - (ord)('a') - key) % 26         # C = CipherText
+            C = ((ord)(letter) - (ord)('A') - shift) % 26         # C = CipherText
             value = C + (ord)('a')
             plainText += chr(value)         # converts ascii value to a char
     
@@ -35,17 +38,15 @@ def main():
         choice = int(input("\nEnter 1 to encrypt, 2 to decrypt and 0 to exit: "))
 
         if choice == 1:
-            plainText = input("Enter text to encrypt: ")
-            key = int(input("Enter key: "))
+            shift = int(input("Enter key: "))
 
-            cipherText = encryption(plainText, key)
+            cipherText = encryption(shift)
             print("\nCipher Text = ", cipherText)
 
         elif choice == 2:
-            cipherText = input("Enter text to decrypt: ")
-            key = int(input("Enter key: "))
+            shift = int(input("Enter key: "))
             
-            plainText = decryption(cipherText, key)
+            plainText = decryption(shift)
             print("\nPlain Text = ", plainText)
     
     print("\nGood Bye!")
