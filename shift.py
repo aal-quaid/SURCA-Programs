@@ -10,9 +10,9 @@ def encryption(shift):
         if letter == " ":
             cipherText += " "
         else:
-            C = ((ord(letter) - (ord)('a')) + shift) % 26         # C = CipherText
-            value = C + (ord)('A')
-            cipherText += chr(value)        # converts ascii value to a char
+            C = ord(letter) - (ord)('a')                # C = CipherText
+            value = (C + shift) % 26
+            cipherText += chr((ord)('A') + value)        # converts ascii value to a char
     
     return cipherText
 
@@ -25,9 +25,9 @@ def decryption(shift):
         if letter == " ":
             plainText += " "
         else:
-            C = ((ord)(letter) - (ord)('A') - shift) % 26         # C = CipherText
-            value = C + (ord)('a')
-            plainText += chr(value)         # converts ascii value to a char
+            C = (ord)(letter) - (ord)('A')              # C = CipherText
+            value = (C - shift) % 26
+            plainText += chr((ord)('a') + value)         # converts ascii value to a char
     
     return plainText
 
