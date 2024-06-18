@@ -1,5 +1,20 @@
 import math
 
+def coprime(a, b):
+    cond1 = math.gcd(a, 26) == 1
+    cond2 = 1 <= a <= 25
+    cond3 = 0 <= b <= 25
+
+    if cond1 and cond2 and cond3 == True:
+        return True
+    else:
+    	return False
+
+def inverse(a):
+    for num in range(1,26):
+        if (num * a) % 26 == 1:
+            return num
+
 def encrypt(a, b):
     cipherText = ""
 
@@ -30,22 +45,6 @@ def decrypt(a, b):
             plainText += chr((ord)('a') + new_num)
 
     return plainText
-
-
-def coprime(a, b):
-    cond1 = math.gcd(a, 26) == 1
-    cond2 = 1 <= a <= 25
-    cond3 = 0 <= b <= 25
-
-    if cond1 and cond2 and cond3 == True:
-        return True
-    else:
-    	return False
-
-def inverse(a):
-    for num in range(1,26):
-        if (num * a) % 26 == 1:
-            return num
 
 def main():
     print("Affine Cipher")  
