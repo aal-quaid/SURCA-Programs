@@ -1,6 +1,6 @@
 import math
 
-def coprime(a, b):
+def coprime(a, b):          #This function checks to see if 'a' and 'b' are valid
     cond1 = math.gcd(a, 26) == 1
     cond2 = 1 <= a <= 25
     cond3 = 0 <= b <= 25
@@ -10,7 +10,7 @@ def coprime(a, b):
     else:
     	return False
 
-def inverse(a):
+def inverse(a):         #This function finds the multiplicative inverse
     for num in range(1,26):
         if (num * a) % 26 == 1:
             return num
@@ -60,9 +60,11 @@ def main():
         if choice == 1:
             cipherText = encrypt(a, b)
             print("\nCipher Text =", cipherText)
+
         elif choice == 2:
             plainText = decrypt(a, b)
             print("\nPlain Text =", plainText)
+            
         else:
             print("Invalid Input")
     
