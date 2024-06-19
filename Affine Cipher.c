@@ -9,29 +9,38 @@ int coprime(int multiplier);
 int modInverse(int multiplier);
 
 int main(){
-    int shift, multiplier, choice, isCoprime;
+    int shift, multiplier, choice, isCoprime,x;
+    printf("Enter 1 to continue: ");
+    scanf("%d",&x);
+    printf("\n");
     printf("Affine Cipher Program\n");
-    printf("Enter shift: ");
-    scanf("%d",&shift);
-    printf("\n");
-    printf("Enter multiplier: ");
-    scanf("%d",&multiplier);
-    printf("\n");
-    isCoprime = coprime(multiplier);
-    if (isCoprime==1){
-        printf("Enter 1 to encrypt a message, enter 2 to decrypt a message: ");
-        scanf("%d",&choice);
+    while (x==1){
+        printf("Enter shift: ");
+        scanf("%d",&shift);
         printf("\n");
-        if (choice==1)
-            encrypt(shift, multiplier);
-        else if (choice==2)
-            decrypt(shift,multiplier);
-        else
-            printf("Invalid input. Please try again."); //Validates Input
+        printf("Enter multiplier: ");
+        scanf("%d",&multiplier);
+        printf("\n");
+        isCoprime = coprime(multiplier);
+        if (isCoprime==1){
+            printf("Enter 1 to encrypt a message, enter 2 to decrypt a message: ");
+            scanf("%d",&choice);
+            printf("\n");
+            if (choice==1)
+                encrypt(shift, multiplier);
+            else if (choice==2)
+                decrypt(shift,multiplier);
+            else
+                printf("Invalid input. Please try again.\n"); //Validates Input
+        }
+        else{
+            printf("Multiplier must be coprime with 26. Please try again.\n"); //Multiplier must be coprime with 26 to properly encrypt/decrypt
+        }
+        printf("Enter 1 to continue, enter 0 to quit: ");
+        scanf("%d",&x);
+        printf("\n");
     }
-    else{
-        printf("Multiplier must be coprime with 26. Please try again."); //Multiplier must be coprime with 26 to properly encrypt/decrypt
-    }
+    printf("Goodbye!\n");
     return 0;
 }
 
@@ -70,7 +79,7 @@ void encrypt(int shift, int multiplier){
             encrypted[i] = plainText[i]; //adds any non-alphabetic characters back into the encrypted message
         }
     }
-    printf("Encrypted Message: %s",encrypted);
+    printf("Encrypted Message: %s\n",encrypted);
 }
 
 void decrypt(int shift, int multiplier){
@@ -93,7 +102,7 @@ void decrypt(int shift, int multiplier){
             decrypted[i] = plainText[i];
         }
     }
-    printf("Decrypted Message: %s",decrypted); 
+    printf("Decrypted Message: %s\n",decrypted); 
 }
 
 int modInverse(int multiplier){
