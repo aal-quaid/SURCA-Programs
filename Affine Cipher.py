@@ -48,18 +48,22 @@ def modInverse(multiplier): #While I understand the concept, I could not apply i
     return -1
 def main():
     print("Affine Cipher Program")
-    shift = int(input("Enter shift: "))
-    multiplier = int(input("Enter multiplier: "))
-    isCoprime = coprime(multiplier)
-    print(isCoprime)
-    if isCoprime==True:
-        choice = int(input("Enter 1 to encrypt a message, enter 2 to decrypt a message: "))
-        if choice==1:
-            encrypt(shift,multiplier)
-        if choice==2:
-            decrypt(shift,multiplier)
+    x = int(input("Enter 1 to continue: "))
+    while x==1:
+        shift = int(input("Enter shift: "))
+        multiplier = int(input("Enter multiplier: "))
+        isCoprime = coprime(multiplier)
+        print(isCoprime)
+        if isCoprime==True:
+            choice = int(input("Enter 1 to encrypt a message, enter 2 to decrypt a message: "))
+            if choice==1:
+                encrypt(shift,multiplier)
+            if choice==2:
+                decrypt(shift,multiplier)
+            else:
+                print("Invalid Input. Please try again.") #Validates input
         else:
-            print("Invalid Input. Please try again.") #Validates input
-    else:
-        print("Multiplier must be coprime with 26. Please try again.") #Multiplier must be coprime with 26 to properly encrypt/decrypt
+            print("Multiplier must be coprime with 26. Please try again.") #Multiplier must be coprime with 26 to properly encrypt/decrypt
+        x = int(input("Enter 1 to continue, enter 0 to quit: "))
+    print("Goodbye!")
 main()
