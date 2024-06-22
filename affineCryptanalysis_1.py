@@ -1,4 +1,4 @@
-#This program finds the keys to the cipher with only the plainText amd cipherText
+#This program finds the keys to the cipher with only the plainText and cipherText
 #This program can only function with 2 letter texts
 
 #Assume the user will only enter 2 letters for each text
