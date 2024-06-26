@@ -1,6 +1,7 @@
 #This program finds the keys to the cipher with only the plainText and cipherText
 
 #Assume the user will enter 2 or more letters for each text
+import math
 
 def keys(P, C):
     P = P.lower()
@@ -12,6 +13,10 @@ def keys(P, C):
     C2 = ord(C[1]) - ord('a')
 
     D = (P1 - P2) % 26
+
+    if math.gcd(D, 26) != 1: #Checks to see if D is valid
+        return False, False
+    
     inverseD = inverse(D)
 
     A = (inverseD * (C1 - C2)) % 26
@@ -31,6 +36,9 @@ def main():
     
     A, B = keys(P, C)
 
-    print(f"\nThe Keys are: A = {A} and B = {B}")
+    if A == False:
+        print("Invalid Input. Please try again.")
+    else:
+        print(f"\nThe Keys are: A = {A} and B = {B}")
 
 main()
