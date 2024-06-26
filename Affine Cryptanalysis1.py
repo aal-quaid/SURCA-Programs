@@ -1,4 +1,5 @@
 #Assumption is that two lowercase letters will be entered as the plain text and cipher text
+#However, more letters can be entered as 2 letters are only needed
 import math 
 
 def findKeys(plainText,cipherText):
