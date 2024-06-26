@@ -1,7 +1,6 @@
 #This program finds the keys to the cipher with only the plainText and cipherText
-#This program can only function with 2 letter texts
 
-#Assume the user will only enter 2 letters for each text
+#Assume the user will enter 2 or more letters for each text
 
 def keys(P, C):
     P = P.lower()
@@ -27,8 +26,8 @@ def inverse(a):
 
 def main():
 
-    P = input("Enter plainText (2 letters): ")
-    C = input("Enter cipherText (2 letters): ")
+    P = input("Enter plainText (2 or more letters): ")
+    C = input("Enter cipherText (2 or more letters): ")
     
     A, B = keys(P, C)
 
