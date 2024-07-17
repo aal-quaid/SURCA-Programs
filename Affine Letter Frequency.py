@@ -77,5 +77,4 @@ def main():
     decrypt(cipherText,frequency,englishFrequency)
     print("Goodbye!")
    
-
 main()
