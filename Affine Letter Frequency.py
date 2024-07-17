@@ -40,11 +40,11 @@ def findKeys(c1,c2,p1,p2):
     return A,B
 
 def decrypt(string,list1,list2):
-    for x,y,p1,p2 in iTools.product(list1,list1,list2,list2):
+    for x,y,p1,p2 in iTools.product(list1,list1,list2,list2): #loops through all 4 points and gets cartesian product of c1,c2,p1,and p2 
         if x==y:
-            continue
+            continue 
         if p1==p2:
-            continue
+            continue #if and continue statements prevent the same letter being c1 and c2 or p1 and p2 simultaneously 
         c1 = x[0]
         c2 = y[0]           
         A,B = findKeys(c1,c2,p1,p2)
@@ -61,7 +61,7 @@ def decrypt(string,list1,list2):
                 else:
                     plainText+=letter
             print(plainText,A,B)
-            z = input("Enter c to continue: ")
+            z = input("Enter c to continue: ") #allows user to exit early if they've found the plaintext
         else: 
             continue
         if z=='c' or z=='C':
