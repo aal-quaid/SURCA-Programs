@@ -72,6 +72,7 @@ def decrypt(string,list1,list2):
 def main():
     print("Affine Cipher Key Finder & Decryption")
     englishFrequency = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l', 'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k', 'j', 'x', 'q', 'z']
+    #sets letters in order of frequency in the English language
     cipherText = input("Enter encrypted message: ")
     frequency = sortByFrequency(letterFrequency(cipherText))
     decrypt(cipherText,frequency,englishFrequency)
