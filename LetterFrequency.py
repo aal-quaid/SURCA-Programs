@@ -19,6 +19,7 @@ def findFrequency(cipherText):      #This function finds the most accuring lette
     for letter in cipherText:
         letter_dict[letter] += 1
     
+    #Using lambda to sort the dictionary
     letter_dict = dict(sorted(letter_dict.items(), key=lambda item: item[1], reverse=True))
     return list(letter_dict.keys())     # return the list of frequent letter in the cipher text
 
