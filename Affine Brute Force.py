@@ -12,8 +12,8 @@ def bruteForce(string):
         for b in range(26):
             print(decrypt(a,b,string))
             x = input("Enter c to continue, q to quit: ")
-            if x=='Q' or x=='q':
-                return
+            if x=='Q' or x=='q':   #allows user to exit once they've found the word
+                return    #ends function early
 
             
 def decrypt(a,b,string):
