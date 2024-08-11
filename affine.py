@@ -18,7 +18,9 @@ def inverse(a):         #This function finds the multiplicative inverse
 def encrypt(a, b):
     cipherText = ""
 
-    string = input("Enter message to decrypt: ")
+    string = input("Enter message to encrypt: ")
+
+    string = string.lower()
 
     for letter in string:
         if letter == " ":
@@ -34,6 +36,8 @@ def decrypt(a, b):
     plainText = ""
 
     string = input("Enter message to decrypt: ")
+
+    string = string.upper()
 
     for letter in string:
         if letter == " ":
